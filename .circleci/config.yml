@@ -13,7 +13,7 @@ jobs:
           command: mvn -B -DskipTests clean package
   test:
     docker:
-      - image: cimg/openjdk
+      - image: cimg/openjdk:21.0.2
     steps:
       - checkout
       - run:
