@@ -43,5 +43,4 @@ public class PokemonMockFactory {
                 100
         );
     }
-
 }

@@ -22,10 +22,13 @@ public class IPokedexTest {
     @BeforeEach
     public void init() throws PokedexException {
         final int[] size = {0};
-        Mockito.doAnswer(invocationOnMock -> ++size[0]).when(pokedex).size();
+        Mockito.when(pokedex.size()).thenAnswer(invocation -> size[0]);
 
-        Mockito.when(pokedex.addPokemon(aquali)).thenReturn(0);
-        Mockito.when(pokedex.addPokemon(bulbizarre)).thenReturn(1);
+        Mockito.doAnswer(invocation -> {
+            size[0]++;
+            return size[0] - 1;
+        }).when(pokedex).addPokemon(Mockito.any(Pokemon.class));
+
 
         Mockito.when(pokedex.getPokemon(0)).thenReturn(aquali);
         Mockito.when(pokedex.getPokemon(1)).thenReturn(bulbizarre);
@@ -39,24 +42,46 @@ public class IPokedexTest {
     }
 
     @Test
-    public void testPokedex() throws PokedexException {
+    public void testAddAquali() throws PokedexException {
         int aqualiIndex = 0;
-        int bulbizarreIndex = 1;
-
         int index = pokedex.addPokemon(aquali);
         assertEquals(aqualiIndex, index);
-        assertEquals(1, pokedex.size());
         assertEquals(aquali, pokedex.getPokemon(aqualiIndex));
+    }
 
-        assertThrows(PokedexException.class, () -> pokedex.getPokemon(3));
+    @Test
+    public void testAddBulbizarreAfterAquali() throws PokedexException {
+        int bulbizarreIndex = 1;
+        pokedex.addPokemon(aquali);
 
-        index = pokedex.addPokemon(bulbizarre);
+        int index = pokedex.addPokemon(bulbizarre);
         assertEquals(bulbizarreIndex, index);
-        assertEquals(2, pokedex.size());
         assertEquals(bulbizarre, pokedex.getPokemon(bulbizarreIndex));
+    }
+
+    @Test
+    public void testGetPokemons() {
+        pokedex.addPokemon(aquali);
+        pokedex.addPokemon(bulbizarre);
 
         List<Pokemon> pokemons = pokedex.getPokemons();
         assertEquals(aquali, pokemons.get(0));
         assertEquals(bulbizarre, pokemons.get(1));
+    }
+
+    @Test
+    public void testNotExistingIndex() {
+        assertThrows(PokedexException.class, () -> pokedex.getPokemon(3));
+    }
+
+    @Test
+    public void testSize() {
+        assertEquals(0, pokedex.size());
+
+        pokedex.addPokemon(aquali);
+        assertEquals(1, pokedex.size());
+
+        pokedex.addPokemon(bulbizarre);
+        assertEquals(2, pokedex.size());
     }
 }

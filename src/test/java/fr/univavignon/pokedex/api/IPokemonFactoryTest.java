@@ -20,7 +20,7 @@ public class IPokemonFactoryTest {
     }
 
     @Test
-    public void testCreatePokemon() {
+    public void testCreateBulbizarre() {
         Pokemon bulbizarre = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
         assertEquals(bulbizarre.getIndex(), 0);
@@ -33,7 +33,10 @@ public class IPokemonFactoryTest {
         assertEquals(bulbizarre.getDust(), 4000);
         assertEquals(bulbizarre.getCandy(), 4);
         assertEquals(bulbizarre.getIv(), 56);
+    }
 
+    @Test
+    public void testCreateAquali() {
         Pokemon aquali = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
 
         assertEquals(aquali.getIndex(), 133);
