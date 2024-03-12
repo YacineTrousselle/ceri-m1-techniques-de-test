@@ -1,16 +1,33 @@
 # Pokedex de BG 😎
 
+Yacine Trousselle M1-ILSEN-ALT
+
 ## Les badges 🆒
-[![codecov](https://codecov.io/gh/YacineTrousselle/ceri-m1-techniques-de-test/graph/badge.svg?token=IQYS58XCAH)](https://codecov.io/gh/YacineTrousselle/ceri-m1-techniques-de-test)  
 
+[![codecov](https://codecov.io/gh/YacineTrousselle/ceri-m1-techniques-de-test/graph/badge.svg?token=IQYS58XCAH)](https://codecov.io/gh/YacineTrousselle/ceri-m1-techniques-de-test)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/YacineTrousselle/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/YacineTrousselle/ceri-m1-techniques-de-test/tree/master)
 
+## Tools 🛠️
+
+- Projet Maven
+- Junit & Mockito
+- CircleCI
+- Codecov
+
+## Choix d'implémentation 🤔
+
+Not done yet
+
+---
 
 # Sujet
 
 ## Introduction
 
-Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
-Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante : 
+Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques
+de tests.  
+Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante :
+
 - Setup du projet
 - Mise en place des outils d’intégration continue
 - Écriture des tests unitaires
@@ -19,7 +36,9 @@ Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant 
 - Documentation et conventions de style
 - Test d'une implémentation donnée
 
-Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la main.
+Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous
+n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la
+main.
 
 ## Sujets
 
