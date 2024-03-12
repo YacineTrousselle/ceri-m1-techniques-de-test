@@ -1,4 +1,11 @@
-# UCE Génie Logiciel Avancé : Techniques de tests
+# Pokedex de BG 😎
+
+## Les badges 🆒
+[![codecov](https://codecov.io/gh/YacineTrousselle/ceri-m1-techniques-de-test/graph/badge.svg?token=IQYS58XCAH)](https://codecov.io/gh/YacineTrousselle/ceri-m1-techniques-de-test)  
+
+
+
+# Sujet
 
 ## Introduction
 
