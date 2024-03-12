@@ -32,6 +32,7 @@ public class IPokemonFactoryTest {
         assertEquals(bulbizarre.getHp(), 64);
         assertEquals(bulbizarre.getDust(), 4000);
         assertEquals(bulbizarre.getCandy(), 4);
+        assertEquals(bulbizarre.getIv(), 56);
 
         Pokemon aquali = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
 
@@ -44,5 +45,6 @@ public class IPokemonFactoryTest {
         assertEquals(aquali.getHp(), 202);
         assertEquals(aquali.getDust(), 5000);
         assertEquals(aquali.getCandy(), 4);
+        assertEquals(aquali.getIv(), 100);
     }
 }

@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IPokemonTrainerFactoryTest {
 
@@ -29,6 +28,7 @@ public class IPokemonTrainerFactoryTest {
         assertNotNull(trainer);
         assertEquals("Jean", trainer.getName());
         assertEquals(Team.INSTINCT, trainer.getTeam());
+        assertInstanceOf(IPokedex.class, trainer.getPokedex());
     }
 
 }
