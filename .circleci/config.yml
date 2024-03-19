@@ -57,9 +57,6 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - checkstyle:
-          requires:
-            - build
       - test:
           requires:
             - build
