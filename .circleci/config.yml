@@ -42,7 +42,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: docs
+          at: .
       - run:
           name: Install and configure dependencies
           command: |
