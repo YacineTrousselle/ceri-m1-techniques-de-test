@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,31 +13,22 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class IPokedexTest {
 
     @Mock
-    private IPokedex pokedex = Mockito.mock(IPokedex.class);
+    private IPokemonMetadataProvider pokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
+
+    @Mock
+    private IPokemonFactory pokemonFactory = Mockito.mock(IPokemonFactory.class);
+
+    private IPokedex pokedex;
 
     private final Pokemon aquali = PokemonMockFactory.getAquali();
     private final Pokemon bulbizarre = PokemonMockFactory.getBulbizarre();
 
     @BeforeEach
     public void init() throws PokedexException {
-        final int[] size = {0};
-        Mockito.when(pokedex.size()).thenAnswer(invocation -> size[0]);
+        Mockito.when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(bulbizarre);
+        Mockito.when(pokemonMetadataProvider.getPokemonMetadata(133)).thenReturn(aquali);
 
-        Mockito.doAnswer(invocation -> {
-            size[0]++;
-            return size[0] - 1;
-        }).when(pokedex).addPokemon(Mockito.any(Pokemon.class));
-
-
-        Mockito.when(pokedex.getPokemon(0)).thenReturn(aquali);
-        Mockito.when(pokedex.getPokemon(1)).thenReturn(bulbizarre);
-
-        Mockito.when(pokedex.getPokemon(3)).thenThrow(PokedexException.class);
-        List<Pokemon> pokemons = new ArrayList<>();
-        pokemons.add(aquali);
-        pokemons.add(bulbizarre);
-
-        Mockito.when(pokedex.getPokemons()).thenReturn(pokemons);
+        pokedex = new MyPokedex(pokemonMetadataProvider, pokemonFactory);
     }
 
     @Test

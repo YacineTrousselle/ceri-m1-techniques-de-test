@@ -23,7 +23,7 @@ public class PokemonMockFactory {
                 64,
                 4000,
                 4,
-                56
+                0
         );
     }
 
@@ -40,7 +40,7 @@ public class PokemonMockFactory {
                 202,
                 5000,
                 4,
-                100
+                0
         );
     }
 }

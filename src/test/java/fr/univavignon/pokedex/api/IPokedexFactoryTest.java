@@ -10,8 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class IPokedexFactoryTest {
 
-    @Mock
-    private IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
+    private IPokedexFactory pokedexFactory;
 
     @Mock
     private IPokemonMetadataProvider pokemonMetadataProvider;
@@ -21,7 +20,7 @@ public class IPokedexFactoryTest {
 
     @BeforeEach
     public void init() {
-        Mockito.when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(Mockito.mock(IPokedex.class));
+        pokedexFactory = new MyPokedexFactory();
     }
 
     @Test

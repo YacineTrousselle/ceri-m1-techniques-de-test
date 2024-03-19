@@ -11,12 +11,13 @@ import static org.mockito.Mockito.when;
 public class IPokemonFactoryTest {
 
     @Mock
-    private IPokemonFactory pokemonFactory = Mockito.mock(IPokemonFactory.class);
+    private IPokemonMetadataProvider pokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
+    private final IPokemonFactory pokemonFactory = new MyPokemonFactory(pokemonMetadataProvider);
 
     @BeforeEach
-    public void setup() {
-        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(PokemonMockFactory.getBulbizarre());
-        when(pokemonFactory.createPokemon(133, 2729, 202, 5000, 4)).thenReturn(PokemonMockFactory.getAquali());
+    public void setup() throws PokedexException {
+        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(PokemonMockFactory.getBulbizarreMetadata());
+        when(pokemonMetadataProvider.getPokemonMetadata(133)).thenReturn(PokemonMockFactory.getAqualiMetadata());
     }
 
     @Test
@@ -32,7 +33,7 @@ public class IPokemonFactoryTest {
         assertEquals(bulbizarre.getHp(), 64);
         assertEquals(bulbizarre.getDust(), 4000);
         assertEquals(bulbizarre.getCandy(), 4);
-        assertEquals(bulbizarre.getIv(), 56);
+        assertEquals(bulbizarre.getIv(), 0);
     }
 
     @Test
@@ -48,6 +49,6 @@ public class IPokemonFactoryTest {
         assertEquals(aquali.getHp(), 202);
         assertEquals(aquali.getDust(), 5000);
         assertEquals(aquali.getCandy(), 4);
-        assertEquals(aquali.getIv(), 100);
+        assertEquals(aquali.getIv(), 0);
     }
 }
