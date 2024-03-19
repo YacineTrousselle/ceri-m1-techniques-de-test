@@ -38,7 +38,7 @@ jobs:
             - docs
   publish:
     docker:
-      - image: cimg/node:21.6.2
+      - image: node:8.10.0
     steps:
       - checkout
       - attach_workspace:
@@ -47,7 +47,6 @@ jobs:
           name: Install and configure dependencies
           command: |
             npm install -g --silent gh-pages
-            node ./node_modules/gh-pages/bin/gh-pages.js -d build
             git config user.email "yacinetrousselle@gmail.com"
             git config user.name "Yacine Trousselle"
       - add_ssh_keys:
