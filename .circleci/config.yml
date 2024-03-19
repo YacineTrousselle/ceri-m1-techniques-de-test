@@ -12,6 +12,15 @@ jobs:
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
+  checkstyle:
+    docker:
+      - image: cimg/openjdk:21.0.2
+    steps:
+      - checkout
+      - run:
+          name: Checkstyle
+          command: mvn checkstyle:checkstyle
+      - push
   test:
     docker:
       - image: cimg/openjdk:21.0.2
@@ -21,11 +30,48 @@ jobs:
           name: Test
           command: mvn test
       - codecov/upload
+  javadoc:
+    docker:
+      - image: cimg/openjdk:21.0.2
+    steps:
+      - checkout
+      - run:
+          name: Javadoc
+          command: mvn javadoc:javadoc
+      - persist_to_workspace:
+          root: docs/apidocs
+          paths:
+            - html
+  publish:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: docs/apidocs
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@klukas.net"
+            git config user.name "ci-build"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dist docs/apidocs/
 
 workflows:
   build_and_test:
     jobs:
       - build
+      - checkstyle:
+          requires:
+            - build
       - test:
           requires:
             - build
+      - javadoc:
+          requires:
+            - test
+      - publish:
+          requires:
+            - javadoc
