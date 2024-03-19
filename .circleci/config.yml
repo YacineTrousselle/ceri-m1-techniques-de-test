@@ -47,6 +47,7 @@ jobs:
           name: Install and configure dependencies
           command: |
             npm install -g --silent gh-pages
+            node ./node_modules/gh-pages/bin/gh-pages.js -d build
             git config user.email "yacinetrousselle@gmail.com"
             git config user.name "Yacine Trousselle"
       - add_ssh_keys:
@@ -54,7 +55,7 @@ jobs:
             - SHA256:psG85UZdKz/erk/dzHnrS7YMehGGHEY57pFUDrWIQ0E
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --dist docs/apidocs/
+          command: gh-pages --message "Update docs [skip ci]"  --dist docs/apidocs/
 workflows:
   build_and_test:
     jobs:
