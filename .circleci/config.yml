@@ -42,7 +42,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: docs/apidocs
+          at: docs
       - run:
           name: Install and configure dependencies
           command: |
@@ -55,6 +55,7 @@ jobs:
       - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages --message "Update docs [skip ci]"  --dist docs/apidocs/
+
 workflows:
   build_and_test:
     jobs:
