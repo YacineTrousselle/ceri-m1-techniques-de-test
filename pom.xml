@@ -112,6 +112,9 @@
                 <version>3.6.3</version>
                 <configuration>
                     <reportOutputDirectory>docs</reportOutputDirectory>
+                    <additionalOptions>
+                        <additionalOption>-Xdoclint:none</additionalOption>
+                    </additionalOptions>
                 </configuration>
             </plugin>
         </plugins>
