@@ -6,6 +6,7 @@ Yacine Trousselle M1-ILSEN-ALT
 
 [![codecov](https://codecov.io/gh/YacineTrousselle/ceri-m1-techniques-de-test/graph/badge.svg?token=IQYS58XCAH)](https://codecov.io/gh/YacineTrousselle/ceri-m1-techniques-de-test)
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/YacineTrousselle/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/YacineTrousselle/ceri-m1-techniques-de-test/tree/master)
+![Checkstyle](./target/site/badges/checkstyle-result.svg)
 
 ## Tools 🛠️
 
