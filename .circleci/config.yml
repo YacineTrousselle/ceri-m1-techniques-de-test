@@ -44,7 +44,7 @@ jobs:
             - html
   publish:
     docker:
-      - image: node:8.10.0
+      - image: cimg/node
     steps:
       - checkout
       - attach_workspace:
