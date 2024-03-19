@@ -54,7 +54,7 @@ jobs:
             - SHA256:psG85UZdKz/erk/dzHnrS7YMehGGHEY57pFUDrWIQ0E
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --message "Update docs [skip ci]"  --dist docs/apidocs/
+          command: npx gh-pages --message "Update docs [skip ci]"  --dist docs/apidocs/
 
 workflows:
   build_and_test:
