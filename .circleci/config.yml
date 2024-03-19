@@ -33,9 +33,9 @@ jobs:
           name: Javadoc
           command: mvn javadoc:javadoc
       - persist_to_workspace:
-          root: docs/apidocs
+          root: .
           paths:
-            - html
+            - docs
   publish:
     docker:
       - image: cimg/node
