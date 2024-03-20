@@ -50,8 +50,7 @@ jobs:
           git config user.email "yacinetrousselle@gmail.com"
           git config user.name "Yacine Trousselle"
       - run: |
-          cd docs/apidocs
-          touch .nojekyll
+          touch docs/apidocs/.nojekyll
           git add -A
           git commit -m "[skip ci] Deploy javadoc"
           git push origin gh-pages -f
