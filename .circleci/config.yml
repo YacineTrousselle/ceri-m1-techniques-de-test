@@ -43,19 +43,17 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run: touch docs/.nojekyll
-      - run:
-          name: Install and configure dependencies
-          command: |
-            npm install -g --silent gh-pages
-            git config user.email "yacinetrousselle@gmail.com"
-            git config user.name "Yacine Trousselle"
       - add_ssh_keys:
           fingerprints:
             - SHA256:psG85UZdKz/erk/dzHnrS7YMehGGHEY57pFUDrWIQ0E
-      - run:
-          name: Deploy docs to gh-pages branch
-          command: npx gh-pages --message "Update docs [skip ci]"  --dist docs/apidocs/
+      - run: |
+          git config user.email "yacinetrousselle@gmail.com"
+          git config user.name "Yacine Trousselle"
+      - run: |
+          cd docs/apidocs
+          git add -A
+          git commit -m "[skip ci] Deploy javadoc"
+          git push origin gh-pages -f
 
 workflows:
   build_and_test:
