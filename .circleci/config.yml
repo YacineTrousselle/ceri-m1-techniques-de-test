@@ -32,24 +32,12 @@ jobs:
       - run:
           name: Javadoc
           command: mvn javadoc:javadoc
-      - persist_to_workspace:
-          root: .
-          paths:
-            - docs
-  publish:
-    docker:
-      - image: node:latest
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
       - add_ssh_keys:
           fingerprints:
             - SHA256:psG85UZdKz/erk/dzHnrS7YMehGGHEY57pFUDrWIQ0E
       - run: |
           git config user.email "yacinetrousselle@gmail.com"
           git config user.name "Yacine Trousselle"
-      - run: |
           touch docs/apidocs/.nojekyll
           git add -A
           git commit -m "[skip ci] Deploy javadoc"
