@@ -35,15 +35,17 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - SHA256:psG85UZdKz/erk/dzHnrS7YMehGGHEY57pFUDrWIQ0E
-      - run: |
-          git config user.email "yacinetrousselle@gmail.com"
-          git config user.name "Yacine Trousselle"
-          git fetch
-          git checkout gh-pages
-          touch docs/apidocs/.nojekyll
-          git add docs
-          git commit -m "[skip ci] Deploy javadoc"
-          git push
+      - run:
+          name: Push to gh-pages branch
+          command: |
+            git config user.email "yacinetrousselle@gmail.com"
+            git config user.name "Yacine Trousselle"
+            git fetch
+            git checkout gh-pages
+            touch docs/apidocs/.nojekyll
+            git add docs
+            git commit -m "[skip ci] Deploy javadoc"
+            git push
 
 workflows:
   build_and_test:
