@@ -40,8 +40,7 @@ jobs:
           git config user.name "Yacine Trousselle"
           git fetch
           git checkout gh-pages
-          mv docs/apidocs/* docs/
-          touch docs/.nojekyll
+          touch docs/apidocs/.nojekyll
           git add docs
           git commit -m "[skip ci] Deploy javadoc"
           git push
