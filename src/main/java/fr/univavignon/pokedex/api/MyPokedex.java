@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * @see fr.univavignon.pokedex.api.IPokedex
+ */
 public class MyPokedex implements IPokedex {
 
     private final IPokemonMetadataProvider pokemonMetadataProvider;

@@ -1,5 +1,8 @@
 package fr.univavignon.pokedex.api;
 
+/**
+ * @see fr.univavignon.pokedex.api.IPokemonFactory
+ */
 public class MyPokemonFactory implements IPokemonFactory {
     private final IPokemonMetadataProvider pokemonMetadataProvider;
 

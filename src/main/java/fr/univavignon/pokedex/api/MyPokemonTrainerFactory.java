@@ -1,5 +1,8 @@
 package fr.univavignon.pokedex.api;
 
+/**
+ * @see fr.univavignon.pokedex.api.IPokemonTrainerFactory
+ */
 public class MyPokemonTrainerFactory implements IPokemonTrainerFactory {
     @Override
     public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {

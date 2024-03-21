@@ -3,6 +3,9 @@ package fr.univavignon.pokedex.api;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @see fr.univavignon.pokedex.api.IPokemonMetadataProvider
+ */
 public class MyPokemonMetadataProvider implements IPokemonMetadataProvider {
 
     private final Map<Integer, PokemonMetadata> pokemonsMetadata = new HashMap<>();
