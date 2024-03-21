@@ -38,12 +38,13 @@ jobs:
       - run: |
           git config user.email "yacinetrousselle@gmail.com"
           git config user.name "Yacine Trousselle"
-          ls
+          git fetch
+          git checkout gh-pages
           mv docs/apidocs/* docs/
           touch docs/.nojekyll
           git add docs
           git commit -m "[skip ci] Deploy javadoc"
-          git push origin gh-pages -f
+          git push
 
 workflows:
   build_and_test:
