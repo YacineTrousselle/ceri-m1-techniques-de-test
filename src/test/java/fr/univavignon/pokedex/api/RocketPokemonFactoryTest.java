@@ -1,24 +1,12 @@
 package fr.univavignon.pokedex.api;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
 
 public class RocketPokemonFactoryTest {
 
-    @Mock
-    private IPokemonMetadataProvider pokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
-    private final IPokemonFactory pokemonFactory = new MyPokemonFactory(pokemonMetadataProvider);
-
-    @BeforeEach
-    public void setup() throws PokedexException {
-        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(PokemonMockFactory.getBulbizarreMetadata());
-        when(pokemonMetadataProvider.getPokemonMetadata(133)).thenReturn(PokemonMockFactory.getAqualiMetadata());
-    }
+    private final IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     @Test
     public void testCreateBulbizarre() {

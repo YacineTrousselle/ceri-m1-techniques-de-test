@@ -40,7 +40,7 @@ jobs:
           command: |
             git config user.email "yacinetrousselle@gmail.com"
             git config user.name "Yacine Trousselle"
-            git fetch
+            git add docs
             git stash
             git checkout gh-pages
             git stash apply
