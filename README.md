@@ -14,10 +14,21 @@ Yacine Trousselle M1-ILSEN-ALT
 - Junit & Mockito
 - CircleCI
 - Codecov
+- Checkstyle
+- GitHub Pages
 
-## Choix d'implémentation 🤔
+## Pourquoi l'implémentation de la Team Rocket est complétement nul ? 😡
 
-Not done yet
+* Ils n'ont pas Bulbizarre à l'index 0
+* Ils génèrent des valeurs aléatoires pour les niveaux d'attaque, de défense et de stamina si l'index est positif
+* Les niveaux d'attaque, de défense et de stamina sont égales à 1000 si l'index est négatif
+* On peut insérer un index pour lequel il n'y a pas de pokémon
+* La fonction generateRandomStat est horrible, c'est un massacre algorithmique
+* Pourquoi y'a du random ? On est censé se baser sur les stats de base de l'espèce et le niveau de l'individu
+* L'iv est parfois égale à 0, parfois égale à 1
+
+Conclusion: la récupération des infos de base de l'espèce est à revoir totalement et les conditions fumeuses sur le
+signe de l'index à retirer
 
 ---
 
