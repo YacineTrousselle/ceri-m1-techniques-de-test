@@ -17,7 +17,7 @@ Yacine Trousselle M1-ILSEN-ALT
 - Checkstyle
 - GitHub Pages
 
-## Pourquoi l'implémentation de la Team Rocket est complétement nul ? 😡
+## Pourquoi l'implémentation de la Team Rocket est complétement nulle ? 😡
 
 * Ils n'ont pas Bulbizarre à l'index 0
 * Ils génèrent des valeurs aléatoires pour les niveaux d'attaque, de défense et de stamina si l'index est positif
