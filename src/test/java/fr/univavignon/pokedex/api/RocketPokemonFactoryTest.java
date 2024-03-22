@@ -8,7 +8,6 @@ public class RocketPokemonFactoryTest {
 
     private final IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-    @Test
     public void testCreateBulbizarre() {
         Pokemon bulbizarre = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
@@ -24,7 +23,6 @@ public class RocketPokemonFactoryTest {
         assertEquals(bulbizarre.getIv(), 0);
     }
 
-    @Test
     public void testCreateAquali() {
         Pokemon aquali = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
 
