@@ -41,7 +41,9 @@ jobs:
             git config user.email "yacinetrousselle@gmail.com"
             git config user.name "Yacine Trousselle"
             git fetch
+            git stash
             git checkout gh-pages
+            git stash apply
             touch docs/apidocs/.nojekyll
             git add docs
             git commit -m "[skip ci] Deploy javadoc"
