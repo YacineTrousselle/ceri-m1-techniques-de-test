@@ -19,7 +19,7 @@ jobs:
           name: Badges
           command: |
             mkdir badges
-            mvn badger:badges
+            mvn post-site
             git add badges
             git commit -m "[skip ci] Update checkstyle badge"
             git push
