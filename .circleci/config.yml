@@ -15,9 +15,19 @@ jobs:
       - run:
           name: Checkstyle
           command: mvn checkstyle:checkstyle
+      - add_ssh_keys:
+        fingerprints:
+          - SHA256:psG85UZdKz/erk/dzHnrS7YMehGGHEY57pFUDrWIQ0E
       - run:
           name: Badges
-          command: mvn post-site
+          command: |
+            mkdir badges
+            mvn post-site
+            git config user.email "yacinetrousselle@gmail.com"
+            git config user.name "Yacine Trousselle"
+            git add badges
+            git commit -m "[skip ci] Update checkstyle badge"
+            git push
   test:
     docker:
       - image: cimg/openjdk:21.0.2
