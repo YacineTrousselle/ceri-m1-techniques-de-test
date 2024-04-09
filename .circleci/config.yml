@@ -40,7 +40,7 @@ jobs:
           command: |
             git config user.email "yacinetrousselle@gmail.com"
             git config user.name "Yacine Trousselle"
-            mv ./docs/apidoc ./new_docs
+            mv ./docs/apidocs ./new_docs
             git checkout gh-pages
             rm -fr docs
             mv new_docs docs
