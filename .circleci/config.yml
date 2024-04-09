@@ -15,6 +15,9 @@ jobs:
       - run:
           name: Checkstyle
           command: mvn checkstyle:checkstyle
+      - add_ssh_keys:
+          fingerprints:
+            - SHA256:psG85UZdKz/erk/dzHnrS7YMehGGHEY57pFUDrWIQ0E
       - run:
           name: Badges
           command: |
