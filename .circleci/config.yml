@@ -15,6 +15,14 @@ jobs:
       - run:
           name: Checkstyle
           command: mvn checkstyle:checkstyle
+      - run:
+          name: Badges
+          command: |
+            mkdir badges
+            mvn badger:badges
+            git add badges
+            git commit -m "[skip ci] Update checkstyle badge"
+            git push
   test:
     docker:
       - image: cimg/openjdk:21.0.2

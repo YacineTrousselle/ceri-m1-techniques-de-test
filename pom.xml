@@ -98,7 +98,6 @@
                             <goal>badges</goal>
                         </goals>
                         <configuration>
-                            <outputDir>badges</outputDir>
                             <inputFiles>
                                 <inputFile>target/checkstyle-result.xml</inputFile>
                             </inputFiles>
