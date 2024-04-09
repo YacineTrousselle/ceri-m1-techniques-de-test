@@ -40,11 +40,12 @@ jobs:
           command: |
             git config user.email "yacinetrousselle@gmail.com"
             git config user.name "Yacine Trousselle"
-            git add docs
-            git stash
+            mv docs new_docs
             git checkout gh-pages
-            git stash apply
+            rm -fr docs
+            mv new_docs docs
             touch docs/apidocs/.nojekyll
+            git add docs
             git commit -m "[skip ci] Deploy javadoc"
             git push
 
