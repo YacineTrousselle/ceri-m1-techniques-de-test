@@ -21,7 +21,6 @@ jobs:
       - run:
           name: Badges
           command: |
-            mkdir badges
             mvn post-site
             git config user.email "yacinetrousselle@gmail.com"
             git config user.name "Yacine Trousselle"
